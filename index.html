@@ -1,0 +1,102 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, user-scalable=no">
+<title>КНБ</title>
+<style>
+body {
+text-align: center;
+font-size: 24px;
+}
+
+button {
+width: 100%;
+font-size: 24px;
+}
+
+output {
+border: 1px solid:red;
+width: 100%
+display: block;
+}
+
+output#c:empty:before {
+content: 'Жми кнопку!';
+color: #ccc;
+}
+
+outpu#r:empty:before {
+content: '...';
+color: #ccc;
+}
+</style>
+</head>
+<body>
+<div id='buttons'>
+<button type="button" data-vibor='k'>Камень</button>
+<button type="button" data-vibor='n'>Ножницы</button>
+<button type="button" data-vibor='b'>Бумага</button>
+</div>
+<div>
+<output name="c"></output>
+<output name="r"></output>
+</div>
+<script>
+var buttons = document.querySelector('#buttons');
+buttons.addEventListener('click',function(e){
+var choise = e.target.dataset.vibor;
+function getRandomChoise(){
+	var rnd = Math.random();
+	var finalResult;
+	if (rnd<0.33)
+		finalResult='k';
+		else if(rnd>0.66)
+			finalResult='n';
+			else finalResult='b';
+		
+	return finalResult;
+};
+function compare(choise1, choise2) {
+    var gt = {
+        'b':'k',
+        'k':'n',
+        'n':'b'
+    };
+    if (choise1 == choise2) {
+        return 'draw';
+    } else {
+        return gt[choise1] == choise1 ? choise1 : choise2;
+    }
+}
+var compVibor = getRandomChoise();
+function getWinner(x,y){
+if (x=='k' && y=='n')
+qwe='you';
+if (x=='k' && y=='b')
+qwe='comp';
+if (x=='k' && y=='k')
+qwe='draw';
+
+if (x=='n' && y=='n')
+qwe='draw';
+if (x=='n' && y=='b')
+qwe='you';
+if (x=='n' && y=='k')
+qwe='comp';
+
+if (x=='b' && y=='n')
+qwe='comp';
+if (x=='b' && y=='b')
+qwe='draw';
+if (x=='b' && y=='k')
+qwe='you';
+return qwe;
+};
+var fResult = getWinner(choise,compVibor);
+var fResult2 = compare(choise, compVibor);
+document.querySelector('[name="c"]').textContent = compVibor
+document.querySelector('[name="r"]').textContent = fResult2
+});
+</script>
+</body>
+</html>
