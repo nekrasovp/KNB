@@ -1,102 +1,53 @@
 ﻿<!DOCTYPE html>
 <html>
-<head>
-<meta name="viewport" content="width=device-width, user-scalable=no">
-<title>КНБ</title>
-<style>
-body {
-text-align: center;
-font-size: 24px;
-}
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>КНБ</title>
+    
+    <link rel="stylesheet" href="css/main.css">
+    </head>
+    
+    <body>
+    <header>
+        <h2>Камень Ножницы Бумага</h2>
+    </header>
 
-button {
-width: 100%;
-font-size: 24px;
-}
+    <div class="score-board">
+        <div id="user_label" class="badge">Игрок</div>
+        <div id="comp_label" class="badge">Компьютер</div>
+        <span id="user_score">0</span> : <span id="comp_score">0</span>
+    </div>
 
-output {
-border: 1px solid:red;
-width: 100%
-display: block;
-}
+    <div class="result">
+        <p>&nbsp;</p>
+    </div>
 
-output#c:empty:before {
-content: 'Жми кнопку!';
-color: #ccc;
-}
+    <div class="choices">
+        <div class="choice" id="k">
+         <i class="fa fa-hand-rock-o fa-5x icon-rock"></i>
+        </div>
+        <div class="choice" id="n">
+         <i class="fa fa-hand-scissors-o fa-5x"></i>
+        </div>
+        <div class="choice" id="b">
+         <i class="fa fa-hand-paper-o fa-5x"></i>
+        </div>
+    </div>
 
-outpu#r:empty:before {
-content: '...';
-color: #ccc;
-}
-</style>
-</head>
-<body>
-<div id='buttons'>
-<button type="button" data-vibor='k'>Камень</button>
-<button type="button" data-vibor='n'>Ножницы</button>
-<button type="button" data-vibor='b'>Бумага</button>
-</div>
-<div>
-<output name="c"></output>
-<output name="r"></output>
-</div>
-<script>
-var buttons = document.querySelector('#buttons');
-buttons.addEventListener('click',function(e){
-var choise = e.target.dataset.vibor;
-function getRandomChoise(){
-	var rnd = Math.random();
-	var finalResult;
-	if (rnd<0.33)
-		finalResult='k';
-		else if(rnd>0.66)
-			finalResult='n';
-			else finalResult='b';
-		
-	return finalResult;
-};
-function compare(choise1, choise2) {
-    var gt = {
-        'b':'k',
-        'k':'n',
-        'n':'b'
-    };
-    if (choise1 == choise2) {
-        return 'draw';
-    } else {
-        return gt[choise1] == choise1 ? choise1 : choise2;
-    }
-}
-var compVibor = getRandomChoise();
-function getWinner(x,y){
-if (x=='k' && y=='n')
-qwe='you';
-if (x=='k' && y=='b')
-qwe='comp';
-if (x=='k' && y=='k')
-qwe='draw';
-
-if (x=='n' && y=='n')
-qwe='draw';
-if (x=='n' && y=='b')
-qwe='you';
-if (x=='n' && y=='k')
-qwe='comp';
-
-if (x=='b' && y=='n')
-qwe='comp';
-if (x=='b' && y=='b')
-qwe='draw';
-if (x=='b' && y=='k')
-qwe='you';
-return qwe;
-};
-var fResult = getWinner(choise,compVibor);
-var fResult2 = compare(choise, compVibor);
-document.querySelector('[name="c"]').textContent = compVibor
-document.querySelector('[name="r"]').textContent = fResult2
-});
-</script>
+    <div class="result-table">
+    <table id="result-table" cellpadding="2" cellspacing="2" border="1">
+        <tr>
+            <th>Время</th>
+            <th>Игрок</th>
+            <th>Компьютер</th>
+            <th>Результат</th>
+        </tr>
+    </table>
+    
+        
+    <script src="js/knb.js" charset="utf-8"></script>
 </body>
 </html>

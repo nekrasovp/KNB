@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@423&display=swap');
+@import url('https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; 
+}
+
+header {
+    background: white;
+}
+
+header > h2 {
+    color: black;
+    text-align: center;
+    font-family: "Roboto Mono", monospace;
+}
+
+body {
+    background: #464647;
+}
+
+.score-board {
+    margin: 20px auto;
+    border: 3px solid white;
+    border-radius: 3px;
+    width: 200px;
+    color: white;
+    font-size: 40px;
+    padding: 15px 20px;
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    position: relative;
+}
+
+.badge {
+    background: red;
+    color: white;
+    font-size: 14px;
+    padding: 2px 10px;
+    font-family: "Roboto Mono", monospace;
+}
+
+#user_label {
+    position: absolute;
+    top: 30px;
+    left: -30px;
+
+}
+
+#comp_label {
+    position: absolute;
+    top: 30px;
+    right: -55px;    
+}
+
+.result {
+    font-size: 25px;
+    color: white;
+}
+
+.result > p {
+    text-align: center;
+    font-weight: bold;
+    font-family: 'Roboto Mono', monospace;
+}
+
+.choices {
+    margin-top: 25px;
+    text-align: center;
+}
+
+.choice {
+    border: 4px solid white;
+    border-radius: 10%;
+    margin: 0 15px;
+    display: inline-block;
+    color: white;
+    background-color: transparent;
+    transition: all 0.3s ease;
+}
+
+.choice:hover {
+    cursor: pointer;
+    background: #313131;
+}
+
+
+#result-table {
+    text-align: center;
+    font-family: 'Roboto Mono', monospace;
+    border-collapse: collapse;
+    width: 200px;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+  
+#result-table td, #result-table th {
+border: 1px solid #ddd;
+padding: 8px;
+}
+
+#result-table tr:hover {background-color: #ddd;}
+
+#result-table th {
+padding-top: 12px;
+padding-bottom: 12px;
+text-align: left;
+background-color: #464647;
+color: white;
+}
+
+.green-glow {
+    border: 4px solid #4dcc7d;
+    box-shadow: 0 0 10px #31b43a;
+}
+
+.red-glow {
+    border: 4px solid #fc121b;
+    box-shadow: 0 0 10px #d01115;
+}
+
+.gray-glow {
+    border: 4px solid #525253;
+    box-shadow: 0 0 10px #25292b;
+}
+
+.green_row_bg {
+    background-color: #4dcc7d;
+}
+
+.red_row_bg {
+    background-color: #fc121b;
+}
+
+.gray_row_bg {
+    background-color: #525253;
+}
+ 
+
+
